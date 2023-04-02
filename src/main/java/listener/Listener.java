@@ -12,7 +12,7 @@ public class Listener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
 // TODO Auto-generated method stub
-        logger.info("onTestStart");
+//        logger.info("onTestStart");
     }
 
     @Override

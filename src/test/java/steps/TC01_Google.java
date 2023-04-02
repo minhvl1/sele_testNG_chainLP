@@ -27,6 +27,10 @@ public class TC01_Google extends BaseTest {
     public void GotoGoogle() {
         driver.findElement(By.xpath("//input[@class='gLFyf']")).sendKeys("youtube");
         driver.findElement(By.xpath("//input[@class='gLFyf']")).sendKeys(Keys.ENTER);
+    }
+
+    @Test
+    public void VerifyResult(){
         String url = driver.getCurrentUrl();
         Assert.assertTrue(url.contains("youtube"));
     }
