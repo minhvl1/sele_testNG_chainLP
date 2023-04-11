@@ -23,4 +23,8 @@ public class DemoQABrowserWindowAction extends BasePage {
         closeTabByTittle(driver,"DEMOQA");
     }
 
+    public void switchToGoogleTab(){
+        switchToWindowByTitle(driver,"Google");
+    }
+
 }
