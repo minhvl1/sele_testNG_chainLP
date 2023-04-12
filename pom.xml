@@ -19,6 +19,7 @@
         <extentreports.version>5.0.9</extentreports.version>
         <log4j.version>2.20.0</log4j.version>
         <webdrivermanager.version>5.3.2</webdrivermanager.version>
+        <allure-testng-version>2.21.0</allure-testng-version>
     </properties>
 
     <dependencies>
@@ -66,6 +67,11 @@
             <version>${extentreports.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng-version}</version>
+        </dependency>
     </dependencies>
 
     <build>

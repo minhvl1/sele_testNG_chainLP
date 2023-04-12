@@ -2,6 +2,7 @@ package steps;
 
 import commons.BasePage;
 import commons.BaseTest;
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -22,6 +23,7 @@ public class TC02_HandleTabs extends BaseTest {
 
     @Parameters({"browser", "url"})
     @BeforeClass
+    @Step("Go to DEMO QA site ")
     public void beforeClass(String browserName, String url) {
         driver = getBrowserDriver(browserName);
         demoQABrowserWindow = new DemoQABrowserWindowAction(driver);
@@ -31,6 +33,7 @@ public class TC02_HandleTabs extends BaseTest {
     }
 
     @Test
+    @Step("Open new google tab and close DemoQA tab ")
     public void openNewTab() throws InterruptedException {
         demoQABrowserWindow.clickNewTabButton();
         demoQABrowserWindow.openNewGoogleTab();
@@ -40,12 +43,14 @@ public class TC02_HandleTabs extends BaseTest {
     }
 
     @Test
+    @Step("Search youtube on google")
     public void searchOnGoogle(){
         googleHomePage.InputKeywordIntoSearchBox("youtube");
         googleHomePage.PressEnterInSearchBox();
     }
 
     @Test
+    @Step("Verify result")
     public void VerifyResult() {
         String url = driver.getCurrentUrl();
         System.out.println(url);
