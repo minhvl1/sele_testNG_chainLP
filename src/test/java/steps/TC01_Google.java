@@ -1,6 +1,7 @@
 package steps;
 
 import commons.BaseTest;
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -18,6 +19,7 @@ public class TC01_Google extends BaseTest {
 
     @Parameters({"browser", "url"})
     @BeforeClass
+    @Step("Browser {0} go to {1} ")
     public void beforeClass(String browserName, String url) {
         driver = getBrowserDriver(browserName);
         googleHomePage = new GoogleHomePageAction(driver);
