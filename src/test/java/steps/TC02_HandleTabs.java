@@ -18,12 +18,12 @@ import pageActions.TC2.DemoQABrowserWindowAction;
 public class TC02_HandleTabs extends BaseTest {
     private WebDriver driver;
     private DemoQABrowserWindowAction demoQABrowserWindow;
-    protected GoogleHomePageAction googleHomePage ;
+    protected GoogleHomePageAction googleHomePage;
     private static final Logger logger = LogManager.getLogger(TC02_HandleTabs.class);
 
     @Parameters({"browser", "url"})
     @BeforeClass
-    @Step("Go to DEMO QA site ")
+    @Step("Browser {0} go to {1} ")
     public void beforeClass(String browserName, String url) {
         driver = getBrowserDriver(browserName);
         demoQABrowserWindow = new DemoQABrowserWindowAction(driver);
@@ -34,27 +34,19 @@ public class TC02_HandleTabs extends BaseTest {
 
     @Test
     @Step("Open new google tab and close DemoQA tab ")
-    public void openNewTab() throws InterruptedException {
+    public void openNewTab(){
         demoQABrowserWindow.clickNewTabButton();
         demoQABrowserWindow.openNewGoogleTab();
         demoQABrowserWindow.closeDemoQATab();
         demoQABrowserWindow.switchToGoogleTab();
-        Thread.sleep(4000);
     }
 
     @Test
     @Step("Search youtube on google")
-    public void searchOnGoogle(){
+    public void searchOnGoogle() {
         googleHomePage.InputKeywordIntoSearchBox("youtube");
         googleHomePage.PressEnterInSearchBox();
-    }
-
-    @Test
-    @Step("Verify result")
-    public void VerifyResult() {
-        String url = driver.getCurrentUrl();
-        System.out.println(url);
-//        Assert.assertTrue(url.contains("youtube"));
+        Assert.assertTrue(googleHomePage.IsH2YoutubeDisplay());
     }
 
 }
