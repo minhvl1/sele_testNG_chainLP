@@ -29,6 +29,7 @@ public class TC01_Google extends BaseTest {
 
     @Test
     public void GotoGoogle() {
+        googleHomePage.clickToSearchBox();
         googleHomePage.InputKeywordIntoSearchBox("youtube");
         googleHomePage.PressEnterInSearchBox();
     }

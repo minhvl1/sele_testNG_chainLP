@@ -44,6 +44,7 @@ public class TC02_HandleTabs extends BaseTest {
     @Test
     @Step("Search youtube on google")
     public void searchOnGoogle() {
+        googleHomePage.clickToSearchBox();
         googleHomePage.InputKeywordIntoSearchBox("youtube");
         googleHomePage.PressEnterInSearchBox();
         Assert.assertTrue(googleHomePage.IsH2YoutubeDisplay());
