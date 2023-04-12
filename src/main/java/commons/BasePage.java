@@ -126,4 +126,20 @@ public class BasePage {
     public void openNewWindow(WebDriver driver) {
         driver.switchTo().newWindow(WindowType.WINDOW);
     }
+
+    public Boolean isElementDisplayed(WebDriver driver, String locatorType) {
+        waitForElementVisible(driver, locatorType);
+        return getElementByXpath(driver, locatorType).isDisplayed();
+    }
+
+
+    public boolean isElementPresent(WebDriver driver, String xpath) {
+        int sizeElements = driver.findElements(By.xpath(xpath)).size();
+        if (sizeElements > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

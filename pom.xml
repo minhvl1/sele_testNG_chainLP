@@ -99,6 +99,12 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
                     </argLine>
                     <testFailureIgnore>true</testFailureIgnore>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>target/allure-results</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
                 <dependencies>
                     <dependency>
