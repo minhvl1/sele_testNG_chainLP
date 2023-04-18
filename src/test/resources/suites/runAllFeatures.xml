@@ -19,7 +19,7 @@
 
         <test name="Handle multiple tabs">
             <parameter name="url" value="https://demoqa.com/browser-windows"/>
-            <parameter name="browser" value="firefox"/>
+            <parameter name="browser" value="hfirefox"/>
             <classes>
                 <class name="steps.TC02_HandleTabs"/>
             </classes>
