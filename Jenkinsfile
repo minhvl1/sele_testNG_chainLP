@@ -27,7 +27,7 @@ pipeline {
              steps {
                     script {
                         try {
-                             sh 'mvn clean verify -D"BROWSER=${browser}"'
+                             sh 'mvn clean verify -D"BROWSER=firefox"'
                         } catch (err) {
                             echo err.getMessage()
                         }
