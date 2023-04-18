@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Google" parallel="tests" thread-count="2">
+<suite name="Google" parallel="tests" thread-count="1">
 
     <!--    <parameter name="url" value="https://www.google.com/"/>-->
 
@@ -19,7 +19,7 @@
 
         <test name="Handle multiple tabs">
             <parameter name="url" value="https://demoqa.com/browser-windows"/>
-            <parameter name="browser" value="chrome"/>
+            <parameter name="browser" value="firefox"/>
             <classes>
                 <class name="steps.TC02_HandleTabs"/>
             </classes>
