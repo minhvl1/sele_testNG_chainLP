@@ -8,13 +8,13 @@
     </listeners>
 
 
-<!--    <test name="Run on chrome">-->
-<!--        <parameter name="url" value="https://www.google.com/"/>-->
-<!--        <parameter name="browser" value="chrome"/>-->
-<!--        <classes>-->
-<!--            <class name="steps.TC01_Google"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Run on chrome">
+        <parameter name="url" value="https://www.google.com/"/>
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="steps.TC01_Google"/>
+        </classes>
+    </test>
 
 
         <test name="Handle multiple tabs">
