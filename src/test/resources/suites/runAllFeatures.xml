@@ -10,7 +10,7 @@
 
     <test name="Run on chrome">
         <parameter name="url" value="https://www.google.com/"/>
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="hchrome"/>
         <classes>
             <class name="steps.TC01_Google"/>
         </classes>
