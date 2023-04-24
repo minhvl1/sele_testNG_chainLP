@@ -4,7 +4,8 @@
     <!--    <parameter name="url" value="https://www.google.com/"/>-->
 
     <listeners>
-        <listener class-name="listener.Listener"/>
+        <listener class-name="listener.AllureReportListener"/>
+        <listener class-name="listener.ExtentReportListener"/>
     </listeners>
 
 

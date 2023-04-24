@@ -11,10 +11,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class Listener implements ITestListener {
+public class AllureReportListener implements ITestListener {
     WebDriver driver;
 
-    private static final Logger logger = LogManager.getLogger(Listener.class);
+    private static final Logger logger = LogManager.getLogger(AllureReportListener.class);
 
     public String getTestName(ITestResult result) {
         return result.getTestName() != null ? result.getTestName()
