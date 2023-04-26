@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aspectjweaver.version>1.9.19</aspectjweaver.version>
         <testng.version>7.7.1</testng.version>
-        <webdriver.version>4.8.1</webdriver.version>
+        <webdriver.version>4.9.0</webdriver.version>
         <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <extentreports.version>5.0.9</extentreports.version>
