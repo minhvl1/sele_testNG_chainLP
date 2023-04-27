@@ -1,13 +1,10 @@
 package steps;
 
-import commons.BasePage;
 import commons.BaseTest;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -32,8 +29,8 @@ public class TC02_HandleTabs extends BaseTest {
         driver.get(url);
     }
 
-    @Test
-    @Step("Open new google tab and close DemoQA tab ")
+    @Test(priority = 1, description ="Open new google tab and close DemoQA tab")
+    @Step("Open new google tab and close DemoQA tab")
     public void openNewTab(){
         demoQABrowserWindow.clickNewTabButton();
         demoQABrowserWindow.openNewGoogleTab();
@@ -41,7 +38,7 @@ public class TC02_HandleTabs extends BaseTest {
         demoQABrowserWindow.switchToGoogleTab();
     }
 
-    @Test
+    @Test(priority = 2, description = "Search youtube on google")
     @Step("Search youtube on google")
     public void searchOnGoogle() {
         googleHomePage.clickToSearchBox();

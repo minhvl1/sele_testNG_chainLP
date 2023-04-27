@@ -27,14 +27,14 @@ public class TC01_Google extends BaseTest {
         driver.get(url);
     }
 
-    @Test
+    @Test(priority = 1)
     public void GotoGoogle() {
         googleHomePage.clickToSearchBox();
         googleHomePage.InputKeywordIntoSearchBox("youtube");
         googleHomePage.PressEnterInSearchBox();
     }
 
-    @Test
+    @Test(priority = 2)
     public void VerifyResult() {
         String url = driver.getCurrentUrl();
         Assert.assertTrue(url.contains("youtube"));
