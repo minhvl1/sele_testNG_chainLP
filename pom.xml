@@ -11,7 +11,7 @@
     <properties>
         <java-compiler.version>22</java-compiler.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <aspectjweaver.version>1.9.22.1</aspectjweaver.version>
+        <aspectj.version>1.9.22.1</aspectj.version>
         <testng.version>7.10.2</testng.version>
         <webdriver.version>4.28.1</webdriver.version>
         <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
@@ -20,6 +20,7 @@
         <log4j.version>3.0.0-beta2</log4j.version>
         <webdrivermanager.version>5.9.2</webdrivermanager.version>
         <allure-testng-version>2.29.1</allure-testng-version>
+        <allure.version>2.26.0</allure.version>
     </properties>
 
     <dependencies>
@@ -96,7 +97,8 @@
                         <suiteXmlFile>src/test/resources/suites/runAllFeatures.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
+                        -Dfile.encoding=${project.build.sourceEncoding}
+<!--                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
                     </argLine>
                     <testFailureIgnore>true</testFailureIgnore>
                     <systemProperties>
@@ -110,9 +112,19 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectjweaver.version}</version>
+                        <version>${aspectj.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                </configuration>
             </plugin>
         </plugins>
 
