@@ -1,45 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<suite name="Google" parallel="tests" thread-count="1">
-
-    <!--    <parameter name="url" value="https://www.google.com/"/>-->
+<?xml version = "1.0"encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Basic Demo" verbose="1">
+    <parameter name="browser" value="edge"/>
+    <parameter name="url" value="https://www.google.com/"/>
 
     <listeners>
-        <listener class-name="listener.AllureReportListener"/>
-        <listener class-name="listener.ExtentReportListener"/>
+        <listener class-name="listeners.TestListener"/>
     </listeners>
 
-
-    <test name="Run on chrome">
-        <parameter name="url" value="https://www.google.com/"/>
-        <parameter name="browser" value="hchrome"/>
-        <classes>
-            <class name="steps.TC01_Google"/>
-        </classes>
-    </test>
-
-
-        <test name="Handle multiple tabs">
-            <parameter name="url" value="https://demoqa.com/browser-windows"/>
-            <parameter name="browser" value="hchrome"/>
+        <test name="Google search">
             <classes>
-                <class name="steps.TC02_HandleTabs"/>
+                <class name="steps.TC01_Google"/>
             </classes>
         </test>
 
-<!--    <test name="Run on edge">-->
-<!--        <parameter name="url" value="https://www.google.com/"/>-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="steps.TC01_Google"/>-->
-<!--        </classes>-->
-<!--    </test>-->
 
-    <!--        <aspectj>-->
-    <!--            <weaver>-->
-    <!--                &lt;!&ndash;        <weaver options="-verbose -showWeaveInfo">&ndash;&gt;-->
-    <!--                <include within="src/test/java/com/nopcommerce/user/User_Register/"/>-->
-    <!--            </weaver>-->
-    <!--        </aspectj>-->
-
+<!--            <test name="Handle multiple tabs">-->
+<!--                <parameter name="url" value="https://demoqa.com/browser-windows"/>-->
+<!--                <parameter name="browser" value="hchrome"/>-->
+<!--                <classes>-->
+<!--                    <class name="steps.TC02_HandleTabs"/>-->
+<!--                </classes>-->
+<!--            </test>-->
 
 </suite>

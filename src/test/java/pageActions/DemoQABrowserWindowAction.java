@@ -1,40 +1,34 @@
-package pageActions.TC2;
+package pageActions;
 
 import com.aventstack.extentreports.Status;
-import commons.BasePage;
-import extentreport.ExtentTestManager;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
-import pageUIs.TC2.DemoQAUI;
+import pageUI.DemoQAUI;
+import reports.ExtentTestManager;
+import utils.WebUI;
 
-public class DemoQABrowserWindowAction extends BasePage {
-    WebDriver driver;
-
-    public DemoQABrowserWindowAction(WebDriver driver) {
-        this.driver = driver;
-    }
+public class DemoQABrowserWindowAction extends WebUI {
 
     @Step("Click new Tab button")
     public void clickNewTabButton(){
-        clickToElement(driver, DemoQAUI.NEW_TAB);
+        clickElement(DemoQAUI.NEW_TAB);
         ExtentTestManager.logMessage(Status.INFO,"Click new tab button");
     }
 
     @Step("Open new google tab")
     public void openNewGoogleTab(){
-        openNewTab(driver,"https://www.google.com.vn/");
+        openNewTab("https://www.google.com.vn/");
         ExtentTestManager.logMessage(Status.INFO,"Open new google tab");
     }
 
     @Step("Close DemoQa tab")
     public void closeDemoQATab(){
-        closeTabByTittle(driver,"DEMOQA");
+        closeTabByTittle("DEMOQA");
         ExtentTestManager.logMessage(Status.INFO,"Close DemoQa tab");
     }
 
     @Step("Switch to google tab")
     public void switchToGoogleTab(){
-        switchToWindowByTitle(driver,"Google");
+        switchToWindowByTitle("Google");
         ExtentTestManager.logMessage(Status.INFO,"Switch to google tab");
     }
 

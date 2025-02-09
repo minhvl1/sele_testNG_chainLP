@@ -1,41 +1,43 @@
-package pageActions.TC1;
+package pageActions;
 
 import com.aventstack.extentreports.Status;
-import commons.BasePage;
-import extentreport.ExtentTestManager;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
-import pageUIs.TC1.GoogleHomePageUI;
+import org.testng.Assert;
+import pageUI.GoogleHomePageUI;
+import reports.ExtentTestManager;
+import utils.WebUI;
 
-public class GoogleHomePageAction extends BasePage {
+public class GoogleHomePageAction extends WebUI {
 
-    WebDriver driver;
-
-    public GoogleHomePageAction(WebDriver driver) {
-        this.driver = driver;
-    }
 
     @Step("Input Keyword {0} into search box")
     public void InputKeywordIntoSearchBox(String keyWord) {
-        sendKeyToElement(driver, keyWord, GoogleHomePageUI.SEARCH_BOX);
+        setText(GoogleHomePageUI.SEARCH_BOX, keyWord);
         ExtentTestManager.logMessage(Status.INFO, "Input " + keyWord + "into search box");
     }
 
     @Step("Click to search box")
     public void clickToSearchBox() {
-        clickToElement(driver, GoogleHomePageUI.SEARCH_BOX);
+        clickElement(GoogleHomePageUI.SEARCH_BOX);
         ExtentTestManager.logMessage(Status.INFO, "Click search box");
     }
 
     @Step("Press Enter")
     public void PressEnterInSearchBox() {
-        pressKeyFromKeyboard(driver, GoogleHomePageUI.SEARCH_BOX, "enter");
+        pressKeyFromKeyboard(GoogleHomePageUI.SEARCH_BOX,"ENTER");
         ExtentTestManager.logMessage(Status.INFO, "Press enter");
     }
 
     @Step("Verify Youtube h2 heading is display")
     public boolean IsH2YoutubeDisplay() {
-        return isElementDisplayed(driver, GoogleHomePageUI.H2_YOUTUBE);
+        return isElementDisplayed(GoogleHomePageUI.H2_YOUTUBE);
+    }
+
+    @Step("Verify current url contains key")
+    public void VerifyUrlContains(String key) {
+        String url = getPageUrl();
+        assert url != null;
+        Assert.assertTrue(url.contains(key));
     }
 
 }

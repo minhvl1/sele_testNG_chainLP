@@ -1,12 +1,10 @@
-
 package utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Log {
-    //Initialize Log4j2 instance
-    private static final Logger LOGGER = LogManager.getLogger(Log.class);
+public class LogUtils {
+    private static final Logger LOGGER = LogManager.getLogger(LogUtils.class);
 
     //Info Level Logs
     public static void info(String message) {

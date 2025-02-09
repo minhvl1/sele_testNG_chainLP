@@ -1,33 +1,19 @@
 package steps;
 
-import commons.BaseTest;
+import common.BaseTest;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageActions.TC1.GoogleHomePageAction;
-import pageActions.TC2.DemoQABrowserWindowAction;
+import pageActions.GoogleHomePageAction;
+import pageActions.DemoQABrowserWindowAction;
 
 public class TC02_HandleTabs extends BaseTest {
-    private WebDriver driver;
-    private DemoQABrowserWindowAction demoQABrowserWindow;
-    protected GoogleHomePageAction googleHomePage;
-    private static final Logger logger = LogManager.getLogger(TC02_HandleTabs.class);
+    private DemoQABrowserWindowAction demoQABrowserWindow = new DemoQABrowserWindowAction();
+    protected GoogleHomePageAction googleHomePage = new GoogleHomePageAction();
 
-    @Parameters({"browser", "url"})
-    @BeforeClass
-    @Step("Browser {0} go to {1} ")
-    public void beforeClass(String browserName, String url) {
-        driver = getBrowserDriver(browserName);
-        demoQABrowserWindow = new DemoQABrowserWindowAction(driver);
-        googleHomePage = new GoogleHomePageAction(driver);
-        logger.info("BROWSER:" + browserName);
-        driver.get(url);
-    }
 
     @Test(priority = 1, description ="Open new google tab and close DemoQA tab")
     @Step("Open new google tab and close DemoQA tab")
