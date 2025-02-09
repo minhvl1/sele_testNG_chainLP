@@ -2,19 +2,16 @@ package listener;
 
 import commons.BaseTest;
 import io.qameta.allure.Attachment;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import utils.Log;
 
 public class AllureReportListener implements ITestListener {
     WebDriver driver;
-
-    private static final Logger logger = LogManager.getLogger(AllureReportListener.class);
 
     public String getTestName(ITestResult result) {
         return result.getTestName() != null ? result.getTestName()
@@ -51,7 +48,7 @@ public class AllureReportListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
 // TODO Auto-generated method stub
-        logger.info("Success of test cases and its details are : "+result.getName());
+        Log.info("Success of test cases and its details are : "+result.getName());
     }
 
     @Override
@@ -59,8 +56,8 @@ public class AllureReportListener implements ITestListener {
 // TODO Auto-generated method stub
         Object testClass = result.getInstance();
         driver = ((BaseTest) testClass).getWebDriver();
-        logger.info("Failure of test cases and its details are : "+result.getName());
-        logger.error("Screenshot captured for test case: " + getTestName(result));
+        Log.info("Failure of test cases and its details are : "+result.getName());
+        Log.error("Screenshot captured for test case: " + getTestName(result));
         saveScreenshotPNG(driver);
         //Save a log on Allure report.
         saveTextLog(getTestName(result) + " failed and screenshot taken!");
@@ -69,24 +66,24 @@ public class AllureReportListener implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
 // TODO Auto-generated method stub
-        logger.info("Skip of test cases and its details are : "+result.getName());
+        Log.info("Skip of test cases and its details are : "+result.getName());
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 // TODO Auto-generated method stub
-        logger.info("Failure of test cases and its details are : "+result.getName());
+        Log.info("Failure of test cases and its details are : "+result.getName());
     }
 
     @Override
     public void onStart(ITestContext context) {
-        logger.info("onStart(");
+        Log.info("onStart(");
 // TODO Auto-generated method stub
     }
 
     @Override
     public void onFinish(ITestContext context) {
 // TODO Auto-generated method stub
-        logger.info("onFinish");
+        Log.info("onFinish");
     }
 }
