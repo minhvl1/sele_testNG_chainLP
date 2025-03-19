@@ -1,26 +1,27 @@
 <?xml version = "1.0"encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Basic Demo" verbose="1">
-    <parameter name="browser" value="edge"/>
-    <parameter name="url" value="https://www.google.com/"/>
+<suite name="Basic Demo" verbose="1" parallel="tests" thread-count="1">
 
     <listeners>
         <listener class-name="listeners.TestListener"/>
     </listeners>
 
-        <test name="Google search">
-            <classes>
-                <class name="steps.TC01_Google"/>
-            </classes>
-        </test>
+    <test name="Google search">
+        <parameter name="browser" value="hedge"/>
+        <parameter name="url" value="https://www.google.com/"/>
+
+        <classes>
+            <class name="steps.TC01_Google"/>
+        </classes>
+    </test>
 
 
-<!--            <test name="Handle multiple tabs">-->
-<!--                <parameter name="url" value="https://demoqa.com/browser-windows"/>-->
-<!--                <parameter name="browser" value="hchrome"/>-->
-<!--                <classes>-->
-<!--                    <class name="steps.TC02_HandleTabs"/>-->
-<!--                </classes>-->
-<!--            </test>-->
+<!--    <test name="Handle multiple tabs">-->
+<!--        <parameter name="url" value="https://demoqa.com/browser-windows"/>-->
+<!--        <parameter name="browser" value="hchrome"/>-->
+<!--        <classes>-->
+<!--            <class name="steps.TC02_HandleTabs"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>

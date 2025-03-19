@@ -1,4 +1,5 @@
 package common;
+import com.aventstack.chaintest.plugins.ChainTestListener;
 import driver.DriverManager;
 
 import helpers.Constructor;
@@ -10,9 +11,9 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
-
+@Listeners(ChainTestListener.class)
 public class BaseTest {
-    @BeforeSuite(alwaysRun = true)
+    @BeforeTest(alwaysRun = true)
     @Parameters({"browser", "url"})
     public void createDriver(@Optional("edge") String browserName, String url) {
         WebDriver driver = setupBrowser(browserName);
@@ -86,7 +87,7 @@ public class BaseTest {
         return driver;
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterTest(alwaysRun = true)
     public void closeDriver() {
         try {
             Thread.sleep(2000);

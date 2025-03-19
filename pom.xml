@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.vlminh</groupId>
-    <artifactId>TestNG_Selenium_parralel</artifactId>
+    <artifactId>TestNG_Selenium_chainLP</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -89,6 +89,13 @@
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>chaintest-testng</artifactId>
+            <version>1.0.11</version>
+        </dependency>
+
     </dependencies>
 
     <build>
